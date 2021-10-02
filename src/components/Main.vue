@@ -15,13 +15,14 @@
       </div>
 
       <div class="col-12 p-5" id="main-contain">
-        <div class="row">
-          <div v-for="(element , index) in movie" :key="index" class="col-12 col-sm-6 col-lg-2">
+        <div class="row justify-content-center g-3">
+          <div v-for="(element , index) in movie" :key="index" class="col-12 col-sm-6 col-lg-2 my-3">
             <div class="card">
-              <h2>{{ element.title}}</h2>
-              <h3>{{ element.original_title }}</h3>
-              <h5> {{element.original_language}} </h5>
-              <h6>{{ element.vote_average }}</h6>
+              <h5>Titolo: {{ element.title}}</h5>
+              <p>Titolo originale: {{ element.original_title }}</p>
+
+              <p>Lingua: {{element.original_language}}</p>
+              <p>Voto: {{ element.vote_average }}</p>
             </div>           
           </div>
         </div>
@@ -41,13 +42,14 @@ export default {
     return{
       searchBar:'',
       movie:[],
+      keyApi: '9d0595ce1c1db683468e3d616a3c1b98',
     }
   },
   methods:{
     search(){
       axios.get('https://api.themoviedb.org/3/search/movie?', {
           params: {
-            api_key: '9d0595ce1c1db683468e3d616a3c1b98',
+            api_key: this.keyApi,
             query: this.searchBar,
           } 
         })
