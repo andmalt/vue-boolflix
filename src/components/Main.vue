@@ -26,7 +26,31 @@
                   <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
                   <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
                 </li>
-                <li><p>Voto: {{ filterAverage(element.vote_average) }}</p></li>
+                <li v-if="filterAverage(element.vote_average) == 1">
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 2">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 3">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 4">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 5">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
               </ul>
             </div>           
           </div>
@@ -42,7 +66,31 @@
                   <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
                   <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
                 </li>
-                <li><p>Voto: {{ filterAverage(element.vote_average) }}</p></li>
+                <li v-if="filterAverage(element.vote_average) == 1">
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 2">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 3">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 4">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
+                <li v-else-if="filterAverage(element.vote_average) == 5">
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                  <i  class="fas fa-star"></i>
+                </li>
               </ul>
             </div>           
           </div>
@@ -126,7 +174,8 @@ export default {
     padding: 0;
 
     & li{
-
+      margin: 0.5rem;
+      
       .poster{
         width: 80%;
       }
