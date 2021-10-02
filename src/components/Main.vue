@@ -17,12 +17,31 @@
       <div class="col-12 p-5" id="main-contain">
         <div class="row justify-content-center g-3">
           <div v-for="(element , index) in movie" :key="index" class="col-12 col-sm-6 col-lg-2 my-3">
-            <div class="card">
-              <h5>Titolo: {{ element.title}}</h5>
-              <p>Titolo originale: {{ element.original_title }}</p>
-
-              <p>Lingua: {{element.original_language}}</p>
-              <p>Voto: {{ element.vote_average }}</p>
+            <div  class="card">
+              <ul>
+                <li><h5>Titolo: {{ element.title}}</h5></li>
+                <li><p>Titolo originale: {{ element.original_title }}</p></li>
+                <li>
+                  <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
+                  <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
+                </li>
+                <li><p>Voto: {{ element.vote_average }}</p></li>
+              </ul>
+            </div>           
+          </div>
+        </div>
+        <div class="row justify-content-center g-3">
+          <div v-for="(element , index) in tv" :key="index" class="col-12 col-sm-6 col-lg-2 my-3">
+            <div  class="card">
+              <ul>
+                <li><h5>Titolo: {{ element.name}}</h5></li>
+                <li><p>Titolo originale: {{ element.original_name }}</p></li>
+                <li>
+                  <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
+                  <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
+                </li>
+                <li><p>Voto: {{ element.vote_average }}</p></li>
+              </ul>
             </div>           
           </div>
         </div>
@@ -42,6 +61,7 @@ export default {
     return{
       searchBar:'',
       movie:[],
+      tv:[],
       keyApi: '9d0595ce1c1db683468e3d616a3c1b98',
     }
   },
@@ -55,7 +75,17 @@ export default {
         })
         .then((res)=> {
           this.movie = [...res.data.results];
-          console.log(this.movie);
+          // console.log(this.movie);
+      });
+      axios.get('https://api.themoviedb.org/3/search/tv?', {
+          params: {
+            api_key: this.keyApi,
+            query: this.searchBar,
+          } 
+        })
+        .then((res)=> {
+          this.tv = [...res.data.results];
+          console.log(this.tv);
       });
     },
   },
@@ -78,6 +108,13 @@ export default {
 .card{
   background-color: black;
   color: white;
+  & img{
+    width: 25px;
+  }
+  & ul{
+    list-style: none;
+    padding: 0;
+  }
 }
 
 </style>
