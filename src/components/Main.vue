@@ -8,39 +8,39 @@
             <!-- <div class="card">
               <img class="img-fluid poster" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name">
             </div>  -->
-            <div  class="card p-2 d-flex">
+            <div  class="card text-start p-3 d-flex">
               <ul>
-                <li><h5> <strong>Titolo:</strong>  {{ element.title }}</h5></li>
-                <li><h6> <strong>Titolo originale:</strong>  {{ element.original_title }}</h6></li>
+                <li><h5> <strong>Title:</strong>  {{ element.title }}</h5></li>
+                <li><h6> <strong>Original title:</strong>  {{ element.original_title }}</h6></li>
                 <li><p>Genre: movie</p></li>
                 <li>
                   <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
                   <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
                 </li>
                 <li class="d-flex align-items-center" v-if="filterAverage(element.vote_average) == 1">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 2">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 3">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 4">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 5">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
@@ -62,39 +62,39 @@
               <img class="img-fluid poster" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name">
             </div>  -->
 
-            <div  class="card p-2 d-flex">
+            <div  class="card text-start p-3 d-flex">
               <ul>
-                <li><h5>Titolo: {{ element.name }}</h5></li>
-                <li><p>Titolo originale: {{ element.original_name }}</p></li>
+                <li><h5>Title: {{ element.name }}</h5></li>
+                <li><p>Original Title: {{ element.original_name }}</p></li>
                 <li>
                   <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
                   <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
                 </li>
                  <li><p>Genre: TV series</p></li>
                 <li class="d-flex align-items-center" v-if="filterAverage(element.vote_average) == 1">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 2">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 3">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 4">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                 </li>
                 <li class="d-flex align-items-center" v-else-if="filterAverage(element.vote_average) == 5">
-                  <p><strong>Voto: </strong></p>
+                  <p><strong>Average: </strong></p>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
