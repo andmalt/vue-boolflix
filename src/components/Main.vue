@@ -4,11 +4,12 @@
 
       <div class="col-12 p-5" id="main-contain">
         <div class="row justify-content-center g-3">
-          <div v-for="(element , index) in movies" :key="index" class="col-12 col-sm-6 col-lg-3 my-3">
-            <!-- <div class="card">
+          <div v-for="(element , index) in movies" :key="index" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 my-3">
+
+            <div @mouseover="hover = true" @mouseleave="hover = false" v-if="hover == false" class="card-img p-3 ">
               <img class="img-fluid poster" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name">
-            </div>  -->
-            <div  class="card text-start p-3 d-flex">
+            </div> 
+            <div @mouseover="hover = true" @mouseleave="hover = false" v-if="hover == true" class="card text-start p-3 d-flex">
               <ul>
                 <li><h5> <strong>Title:</strong>  {{ element.title }}</h5></li>
                 <li><h6> <strong>Original title:</strong>  {{ element.original_title }}</h6></li>
@@ -55,14 +56,14 @@
           </div>
         </div>
         <div class="row justify-content-center g-3">
-          <div v-for="(element , index) in series" :key="index" class="col-12 col-sm-6 col-lg-3 my-3">
+          <div v-for="(element , index) in series" :key="index"  class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 my-3">
 
 
-            <!-- <div class="card">
+            <div @mouseover="hover = true" @mouseleave="hover = false" v-if="hover == false"  class="card-img p-3 ">
               <img class="img-fluid poster" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name">
-            </div>  -->
+            </div> 
 
-            <div  class="card text-start p-3 d-flex">
+            <div @mouseover="hover = true" @mouseleave="hover = false" v-if="hover == true" class="card text-start p-3 d-flex">
               <ul>
                 <li><h5> <strong>Title:</strong> {{ element.name }}</h5></li>
                 <li><h6> <strong>Original title:</strong> {{ element.original_name }}</h6></li>
@@ -124,6 +125,7 @@ export default {
   data(){
     return{
       image: 'https://image.tmdb.org/t/p/original/',
+      hover:false,
     }
   },
   methods:{
@@ -151,7 +153,7 @@ export default {
 .card{
   background-color: black;
   color: white;
-  height: 40rem;
+  height: 350px;
   overflow: auto;
   & img{
     width: 25px;
@@ -167,13 +169,22 @@ export default {
         margin: 0;
         margin-right: 0.6rem;
       }
-      .poster{
-        width: 100%;
-      }
     }
   }
   & .fa-star{
     color: goldenrod;
+  }
+}
+.card-img{
+  height: 350px;
+  background-color: black;
+  
+
+  & img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
