@@ -5,11 +5,14 @@
       <div class="col-12 p-5" id="main-contain">
         <div class="row justify-content-center g-3">
           <div v-for="(element , index) in movies" :key="index" class="col-12 col-sm-6 col-lg-3 my-3">
-            <div  class="card p-4 d-flex">
+            <!-- <div class="card">
+              <img class="img-fluid poster" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name">
+            </div>  -->
+            <div  class="card p-2 d-flex">
               <ul>
-                <li><img class="img-fluid poster mb-3" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name"></li>
-                <li><h5>Titolo: {{ element.title }}</h5></li>
-                <li><p>Titolo originale: {{ element.original_title }}</p></li>
+                <li><h5> <strong>Titolo:</strong>  {{ element.title }}</h5></li>
+                <li><h6> <strong>Titolo originale:</strong>  {{ element.original_title }}</h6></li>
+                <li><p>Genre: movie</p></li>
                 <li>
                   <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
                   <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
@@ -43,6 +46,9 @@
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
+                </li>
+                <li>
+                  <p><strong>Overview: </strong> {{ element.overview }} </p>
                 </li>
               </ul>
             </div>           
@@ -56,15 +62,15 @@
               <img class="img-fluid poster" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name">
             </div>  -->
 
-            <div  class="card p-4 d-flex">
+            <div  class="card p-2 d-flex">
               <ul>
-                <li><img class="img-fluid poster mb-3" :src="filterImage(element.poster_path)" :alt="'poster '+ element.name"></li>
                 <li><h5>Titolo: {{ element.name }}</h5></li>
                 <li><p>Titolo originale: {{ element.original_name }}</p></li>
                 <li>
                   <img v-if="element.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">
                   <img v-else-if="element.original_language == 'en'" src="../assets/United_Kingdom.svg.png" alt="bandiera Regno Unito">
                 </li>
+                 <li><p>Genre: TV series</p></li>
                 <li class="d-flex align-items-center" v-if="filterAverage(element.vote_average) == 1">
                   <p><strong>Voto: </strong></p>
                   <i  class="fas fa-star"></i>
@@ -94,6 +100,9 @@
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
                   <i  class="fas fa-star"></i>
+                </li>
+                <li>
+                  <p><strong>Overview: </strong> {{ element.overview }} </p>
                 </li>
               </ul>
             </div> 
@@ -143,6 +152,7 @@ export default {
   background-color: black;
   color: white;
   height: 40rem;
+  overflow: auto;
   & img{
     width: 25px;
   }
