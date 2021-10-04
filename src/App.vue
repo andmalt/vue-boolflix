@@ -45,18 +45,18 @@ export default {
           this.movie = [...res.data.results];
           console.log(this.movie);
         });
-
       // get tv series
-      axios.get(this.getTv, {
+        axios.get(this.getTv, {
           params: {
             api_key: this.keyApi,
             query: el,
+            language:this.lang
           } 
         })
         .then((res)=> {
           this.tv = [...res.data.results];
           // console.log(this.tv);
-      });
+        });
     },
   },
 
