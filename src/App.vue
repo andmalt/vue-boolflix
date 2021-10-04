@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @search="search" />
+    <Header @search="search" @lang="changeLanguage" />
     <Main :movies="movie" :series="tv" />
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
   },
   data(){
     return{
+      lang:'',
       moviecast:[],
       tvCast:[],
       movie:[],
@@ -28,12 +29,16 @@ export default {
     }
   },
   methods:{
+    changeLanguage(el){
+      this.lang = el;
+    },
     search(el){
       // get movie
       axios.get(this.getMovie, {
           params: {
             api_key: this.keyApi,
             query: el,
+            language:this.lang
           } 
         })
         .then((res)=> {
