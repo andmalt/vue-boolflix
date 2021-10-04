@@ -1,16 +1,16 @@
 <template>
   <div @mouseover="hover = true" @mouseleave="hover = false" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 my-3">
         <div  v-if="hover == false"  class="card-img p-3 ">
-            <img class="img-fluid poster" :src="filterImage(movie.poster_path)" :alt="'poster '+ movie.name">
+            <img class="img-fluid poster" :src="filterImage(movie.poster_path)" :alt="'poster '+ movie.title? movie.title : movie.name ">
         </div> 
 
-        <div v-if="hover" class="card text-start p-3 d-flex">
+        <div v-else-if="hover" class="card text-start p-3 d-flex">
             <ul>
                 <li>
                     <h5> <strong>Title:</strong> {{ movie.title ? movie.title : movie.name }}</h5>
                 </li>
                 <li>
-                    <h6> <strong>Original title:</strong> {{ movie.original_title ? movie.title : movie.name }} </h6>
+                    <h6> <strong>Original title:</strong> {{ movie.original_title ? movie.original_title : movie.original_name }} </h6>
                 </li>
                 <li>
                     <img v-if="movie.original_language == 'it'" src="../assets/Italy.svg.png" alt="bandiera Italiana">

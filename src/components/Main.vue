@@ -3,14 +3,12 @@
     <div class="row">
 
       <div class="col-12 p-5" id="main-contain">
-        <!-- film -->
-        <div class="row justify-content-center g-3">
-          <Cards :movie="movie" v-for="(movie , index) in movies" :key="index" />
+        <!-- Movies and Tv series -->
+        <div class="row g-3">
+          <Cards :movie="movie" v-for="movie in movies" :key="movie.id" />
+          <Cards :movie="serie" v-for="serie in series" :key="serie.id" />
         </div>
-        <!-- series -->
-        <div class="row justify-content-center g-3" >
-          <Cards :movie="serie" v-for="(serie , index) in series" :key="index" />
-        </div>
+
       </div>
     </div>
   </main>
