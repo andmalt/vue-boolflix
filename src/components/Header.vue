@@ -22,12 +22,13 @@
 
 
 export default {
-data(){
+  name:'Header',
+  data(){
     return{
         searchBar:'',
     }
 
-},
+  },
 }
 </script>
 
