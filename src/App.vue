@@ -18,14 +18,19 @@ export default {
   },
   data(){
     return{
+      moviecast:[],
+      tvCast:[],
       movie:[],
       tv:[],
       keyApi: '9d0595ce1c1db683468e3d616a3c1b98',
+      getMovie:'https://api.themoviedb.org/3/search/movie?', 
+      getTv:'https://api.themoviedb.org/3/search/tv?',
     }
   },
   methods:{
     search(el){
-      axios.get('https://api.themoviedb.org/3/search/movie?', {
+      // get movie
+      axios.get(this.getMovie, {
           params: {
             api_key: this.keyApi,
             query: el,
@@ -34,8 +39,10 @@ export default {
         .then((res)=> {
           this.movie = [...res.data.results];
           console.log(this.movie);
-      });
-      axios.get('https://api.themoviedb.org/3/search/tv?', {
+        });
+
+      // get tv series
+      axios.get(this.getTv, {
           params: {
             api_key: this.keyApi,
             query: el,
@@ -43,7 +50,7 @@ export default {
         })
         .then((res)=> {
           this.tv = [...res.data.results];
-          console.log(this.tv);
+          // console.log(this.tv);
       });
     },
   },
