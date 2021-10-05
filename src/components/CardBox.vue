@@ -1,7 +1,8 @@
 <template>
   <div @mouseover="hover = true" @mouseleave="hover = false" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 my-3">
         <div  v-if="hover == false"  class="card-img p-1 ">
-            <img class="img-fluid poster" :src="filterImage(movie.poster_path)" :alt="'poster '+ movie.title? movie.title : movie.name ">
+            <img v-if="movie.poster_path != null" class="img-fluid" :src="filterImage(movie.poster_path)" :alt="'poster '+ movie.title? movie.title : movie.name ">
+            <img v-else src="" class="img-fluid poster" alt="">
         </div> 
 
         <div v-else-if="hover" class="card text-start px-2 py-3 d-flex">
@@ -120,6 +121,10 @@ export default {
   height: 350px;
   background-color: black;
   
+  .poster{
+    background-color: rgb(214, 48, 48);
+    padding: 0.5rem;
+  }
 
   & img{
     width: 100%;

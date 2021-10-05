@@ -43,7 +43,7 @@ export default {
         })
         .then((res)=> {
           this.movie = [...res.data.results];
-          console.log(this.movie);
+          // console.log(this.movie);
         });
       // get tv series
         axios.get(this.getTv, {

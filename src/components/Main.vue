@@ -42,7 +42,7 @@ export default {
 @import '../style/general.scss';
 
 #main-contain{
-  background-color: gray;
+  background-color: rgba(133, 133, 133, 0.7);
   min-height: calc(100vh - 118px);
 }
 
