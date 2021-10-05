@@ -19,7 +19,7 @@ export default {
   data(){
     return{
       lang:'',
-      moviecast:[],
+      movieCast:[],
       tvCast:[],
       movie:[],
       tv:[],
@@ -57,6 +57,25 @@ export default {
           this.tv = [...res.data.results];
           // console.log(this.tv);
         });
+        setTimeout(this.getCast ,1500);
+        
+    },
+    getCast(){
+      this.movie.forEach((element)=>{
+        // get movie cast
+      axios.get(`https://api.themoviedb.org/3/movie/${element.id}/credits?`, {
+          params: {
+            api_key: this.keyApi,
+            language:this.lang,
+          } 
+        })
+        .then((res)=> {
+          // console.log(res.data.cast);
+          this.movieCast = [...res.data.cast];
+          console.log(this.movieCast);
+        });
+      })
+      
     },
   },
 
