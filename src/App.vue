@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="search" @lang="changeLanguage" />
-    <Main :movies="movie" :series="tv" />
+    <Main :movies="movie" :series="tv" :tcast="tvCast" :mcast="movieCast"  />
   </div>
 </template>
 

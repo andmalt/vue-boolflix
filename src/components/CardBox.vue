@@ -55,6 +55,10 @@
               <li>
                 <p><strong>Overview: </strong> <em>{{ movie.overview }}</em></p>
               </li>
+              <!-- <li>
+                <h6><strong>Cast:</strong></h6>
+                <p > {{ cast.original_name }} <strong>alias</strong> {{ cast.character }}</p>
+              </li> -->
             </ul>
         </div>
   </div>
@@ -65,7 +69,8 @@ export default {
     name:'Card',
     props:{
         movie:Object,
-        serie:Object,
+        cast:Object,
+
     },
     data(){
     return{
