@@ -57,7 +57,7 @@ export default {
           this.tv = [...res.data.results];
           // console.log(this.tv);
         });
-        setTimeout(this.getCast ,1500);
+        setTimeout(this.getCast ,100);
         
     },
     getCast(){
@@ -75,7 +75,20 @@ export default {
           console.log(this.movieCast);
         });
       })
-      
+      this.tv.forEach((element)=>{
+        // get tv cast
+      axios.get(`https://api.themoviedb.org/3/tv/${element.id}/credits?`, {
+          params: {
+            api_key: this.keyApi,
+            language:this.lang,
+          } 
+        })
+        .then((res)=> {
+          // console.log(res.data.cast);
+          this.tvCast = [...res.data.cast];
+          console.log(this.tvCast);
+        });
+      })
     },
   },
 
