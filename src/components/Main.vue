@@ -7,8 +7,8 @@
         <div class="row g-3">
           <Cards :movie="movie"  v-for="movie in movies" :key="movie.id" />
           <Cards :movie="serie"  v-for="serie in series" :key="serie.id" />
-          <!-- <Cards :cast="castm" v-for="(castm , index ) in mcast" :key="index" />
-          <Cards :cast="castt" v-for="(castt , index ) in tcast" :key="index" /> -->
+          <!-- <Cards :cast="castm" v-for="castm, index in mcast" :key="index" />
+          <Cards :cast="castt" v-for="castt, index in tcast" :key="index" /> -->
         </div>
 
       </div>
@@ -34,6 +34,11 @@ export default {
     return{
 
     }
+  },
+  methods:{
+    // filterArray(arr){
+      
+    // }
   },
   computed:{
 

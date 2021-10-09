@@ -43,7 +43,7 @@ export default {
         })
         .then((res)=> {
           this.movie = [...res.data.results];
-          // console.log(this.movie);
+          console.log(this.movie);
         });
       // get tv series
         axios.get(this.getTv, {
@@ -57,7 +57,7 @@ export default {
           this.tv = [...res.data.results];
           // console.log(this.tv);
         });
-        setTimeout(this.getCast ,100);
+        setTimeout(this.getCast ,200);
         
     },
     getCast(){
@@ -86,7 +86,7 @@ export default {
         .then((res)=> {
           // console.log(res.data.cast);
           this.tvCast = [...res.data.cast];
-          console.log(this.tvCast);
+          // console.log(this.tvCast);
         });
       })
     },

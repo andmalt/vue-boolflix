@@ -22,42 +22,17 @@
               <li>
                 <p><strong>Genre: </strong>{{ movie.title ? 'Movie' : 'Tv series' }}</p>
               </li>
-              <li class="d-flex align-items-center" v-if="filterAverage(movie.vote_average) == 1">
+              <li class="d-flex align-items-center" v-if="filterAverage(movie.vote_average) > 0">
                 <p><strong>Average: </strong></p>
-                <i  class="fas fa-star"></i>
-              </li>
-              <li class="d-flex align-items-center" v-else-if="filterAverage(movie.vote_average) == 2">
-                <p><strong>Average: </strong></p>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-              </li>
-              <li class="d-flex align-items-center" v-else-if="filterAverage(movie.vote_average) == 3">
-                <p><strong>Average: </strong></p>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-              </li>
-              <li class="d-flex align-items-center" v-else-if="filterAverage(movie.vote_average) == 4">
-                <p><strong>Average: </strong></p>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-              </li>
-              <li class="d-flex align-items-center" v-else-if="filterAverage(movie.vote_average) == 5">
-                <p><strong>Average: </strong></p>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
-                <i  class="fas fa-star"></i>
+                <i v-for="n in filterAverage(movie.vote_average)" :key="'star1'+ n" class="fas fa-star"></i>
+                <i v-for="n in 5 - filterAverage(movie.vote_average)" :key="'star2'+ n" class="far fa-star"></i>
               </li>
               <li>
                 <p><strong>Overview: </strong> <em>{{ movie.overview }}</em></p>
               </li>
               <!-- <li>
                 <h6><strong>Cast:</strong></h6>
-                <p > {{ cast.original_name }} <strong>alias</strong> {{ cast.character }}</p>
+                <p> {{ cast.original_name }} <strong>alias</strong> {{ cast.character }}</p>
               </li> -->
             </ul>
         </div>
@@ -84,7 +59,7 @@ export default {
     },
     filterAverage(element){
       return parseInt(element / 2);
-    }
+    },
   },
 }
 </script>
