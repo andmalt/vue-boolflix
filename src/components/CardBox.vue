@@ -32,7 +32,7 @@
               </li>
               <!-- <li>
                 <h6><strong>Cast:</strong></h6>
-                <p> {{ cast.original_name }} <strong>alias</strong> {{ cast.character }}</p>
+                <p v-for="(element , index ) in castm" :key="index"> {{ element.name }} <strong>as</strong> {{ element.character }}</p>
               </li> -->
             </ul>
         </div>
@@ -44,8 +44,8 @@ export default {
     name:'Card',
     props:{
         movie:Object,
-        cast:Object,
-
+        castm:Array,
+        castt:Array,
     },
     data(){
     return{

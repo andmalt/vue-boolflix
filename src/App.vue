@@ -43,7 +43,7 @@ export default {
         })
         .then((res)=> {
           this.movie = [...res.data.results];
-          console.log(this.movie);
+          // console.log(this.movie);
         });
       // get tv series
         axios.get(this.getTv, {
@@ -71,10 +71,10 @@ export default {
         })
         .then((res)=> {
           // console.log(res.data.cast);
-          this.movieCast = [...res.data.cast];
-          console.log(this.movieCast);
+          this.movieCast.push(res.data.cast);
         });
       })
+      console.log(this.movieCast);
       this.tv.forEach((element)=>{
         // get tv cast
       axios.get(`https://api.themoviedb.org/3/tv/${element.id}/credits?`, {
@@ -85,10 +85,11 @@ export default {
         })
         .then((res)=> {
           // console.log(res.data.cast);
-          this.tvCast = [...res.data.cast];
-          // console.log(this.tvCast);
+          this.tvCast.push(res.data.cast);
+          
         });
       })
+      console.log(this.tvCast);
     },
   },
 
