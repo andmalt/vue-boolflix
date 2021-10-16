@@ -5,10 +5,8 @@
       <div class="col-12 p-5" id="main-contain">
         <!-- Movies and Tv series -->
         <div class="row g-3">
-          <Cards :movie="movie"  v-for="movie in movies" :key="movie.id" />
-          <Cards :movie="serie"  v-for="serie in series" :key="serie.id" />
-          <!-- <Cards :castm="arrMovie" v-for="(arrMovie , index) in mcast" :key="'movieCast'+index" />
-          <Cards :castt="castt" v-for="(castt, index) in tcast" :key="'tvCast'+index" /> -->
+          <Cards :movie="movie" v-for="movie in movies" :key="movie.id" />
+          <Cards :movie="serie" v-for="serie in series" :key="serie.id" />
         </div>
 
       </div>
@@ -27,8 +25,6 @@ export default {
   props: {
     movies:Array,
     series:Array,
-    tcast:Array,
-    mcast:Array,
   },
   data(){
     return{

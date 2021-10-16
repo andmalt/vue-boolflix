@@ -30,10 +30,10 @@
               <li>
                 <p><strong>Overview: </strong> <em>{{ movie.overview }}</em></p>
               </li>
-              <!-- <li>
+              <li>
                 <h6><strong>Cast:</strong></h6>
-                <p v-for="(element , index ) in castm" :key="index"> {{ element.name }} <strong>as</strong> {{ element.character }}</p>
-              </li> -->
+                <p class="my-2" v-for="(element, index) in maxCast(movie.cast)" :key="index"> {{ element.name }} <strong>as</strong> {{ element.character }}</p>
+              </li>
             </ul>
         </div>
   </div>
@@ -44,8 +44,6 @@ export default {
     name:'Card',
     props:{
         movie:Object,
-        castm:Array,
-        castt:Array,
     },
     data(){
     return{
@@ -60,6 +58,11 @@ export default {
     filterAverage(element){
       return parseInt(element / 2);
     },
+    maxCast(el){
+      if(el != undefined){
+        return el.slice(0,5);
+      }
+    }
   },
 }
 </script>

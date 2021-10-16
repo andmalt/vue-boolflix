@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="search" @lang="changeLanguage" />
-    <Main :movies="movie" :series="tv" :tcast="tvCast" :mcast="movieCast"  />
+    <Main :movies="movie" :series="tv"  />
   </div>
 </template>
 
@@ -19,8 +19,6 @@ export default {
   data(){
     return{
       lang:'',
-      movieCast:[],
-      tvCast:[],
       movie:[],
       tv:[],
       keyApi: '9d0595ce1c1db683468e3d616a3c1b98',
@@ -62,8 +60,9 @@ export default {
     },
     getCast(){
       this.movie.forEach((element)=>{
+
         // get movie cast
-      axios.get(`https://api.themoviedb.org/3/movie/${element.id}/credits?`, {
+        axios.get(`https://api.themoviedb.org/3/movie/${element.id}/credits?`, {
           params: {
             api_key: this.keyApi,
             language:this.lang,
@@ -71,10 +70,11 @@ export default {
         })
         .then((res)=> {
           // console.log(res.data.cast);
-          this.movieCast.push(res.data.cast);
+          element.cast = (res.data.cast); 
         });
       })
-      console.log(this.movieCast);
+      /* console.log(this.movie); */
+
       this.tv.forEach((element)=>{
         // get tv cast
       axios.get(`https://api.themoviedb.org/3/tv/${element.id}/credits?`, {
@@ -85,11 +85,11 @@ export default {
         })
         .then((res)=> {
           // console.log(res.data.cast);
-          this.tvCast.push(res.data.cast);
+          element.cast = (res.data.cast);
           
         });
       })
-      console.log(this.tvCast);
+      /* console.log(this.tv); */
     },
   },
 
