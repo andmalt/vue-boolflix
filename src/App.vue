@@ -70,10 +70,10 @@ export default {
         })
         .then((res)=> {
           // console.log(res.data.cast);
-          element.cast = (res.data.cast); 
+          element.cast = [...res.data.cast]; 
         });
       })
-      /* console.log(this.movie); */
+      console.log(this.movie);
 
       this.tv.forEach((element)=>{
         // get tv cast
@@ -85,11 +85,11 @@ export default {
         })
         .then((res)=> {
           // console.log(res.data.cast);
-          element.cast = (res.data.cast);
+          element.cast = [...res.data.cast];
           
         });
       })
-      /* console.log(this.tv); */
+      console.log(this.tv);
     },
   },
 
